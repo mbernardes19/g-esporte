@@ -1,0 +1,14 @@
+{
+    "default": {
+        "title": "Ocorreu um erro",
+        "message": "Por favor tente novamente mais tarde."
+    },
+    "404": {
+        "title": "Conteúdo buscado não foi encontrado",
+        "message": "Pode ser que tenha sido excluído."
+    },
+    "500": {
+        "title": "Ocorreu um erro",
+        "message": "Por favor tente novamente mais tarde."
+    }
+}

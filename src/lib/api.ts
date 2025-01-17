@@ -1,33 +1,36 @@
-import { DadosPartida } from 'src/types/api'
 import { env } from './env'
+import { ApiError } from './error/ApiError'
 
 type ApiHandlerOptions = {
-    url: string
     method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
-}
+} & RequestInit
 
-export const apiHandler = async ({
-    url,
-    method = 'GET'
-}: ApiHandlerOptions) => {
+export const apiHandler = async (
+    url: string,
+    { method = 'GET', ...fetchOptions }: ApiHandlerOptions = {}
+) => {
     if (env.test) {
         return (await import('../test/mocks/dadosPartida.json')).default
     }
     try {
-        const res = await fetch(url, { method })
+        const res = await fetch(url, fetchOptions)
+
         if (!res.ok) {
-            throw new Error(
-                `[API] Erro ao chamar endpoint: ${method} ${url}: ${res.status} ${res.statusText} ${res.body}`
+            const resText = await res.text()
+            throw new ApiError(
+                `${method} ${res.url} ${res.status} ${res.statusText} ${resText}`,
+                { statusCode: res.status }
             )
         }
         return await res.json()
     } catch (err) {
-        throw new Error(
-            `[API] Erro ao chamar endpoint: ${method} ${url}: ${err}`
-        )
+        const { name, message, stack, cause } = err as Error
+        console.error(`ApiError: ${method} ${url}`, {
+            name,
+            message,
+            stack,
+            cause
+        })
+        throw err
     }
-}
-
-export const fetchPartida = async (): Promise<DadosPartida> => {
-    return await apiHandler({ url: env.apiEndpoint })
 }
