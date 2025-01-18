@@ -1,0 +1,7 @@
+.container {
+    @apply flex items-center justify-between w-full;
+
+    p {
+        @apply text-4xl;
+    }
+}
