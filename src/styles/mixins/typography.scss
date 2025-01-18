@@ -1,0 +1,19 @@
+@mixin h-2xl {
+    @apply text-4xl font-bold;
+}
+
+@mixin h-xl {
+    @apply text-3xl font-bold;
+}
+
+@mixin h-lg {
+    @apply text-2xl font-bold;
+}
+
+@mixin h-md {
+    @apply text-xl font-bold;
+}
+
+@mixin h-sm {
+    @apply text-lg font-bold;
+}
