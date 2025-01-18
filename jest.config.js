@@ -5,7 +5,7 @@ module.exports = {
         '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
         '^@lib/(.*)$': '<rootDir>/src/lib/$1',
         '^@components/(.*)$': '<rootDir>/src/components/$1',
-        '^@customTypes/(.*)$': '<rootDir>/src/customTypes/$1',
+        '^@customTypes/(.*)$': '<rootDir>/src/types/$1',
         '^@mixins/(.*)$': '<rootDir>/src/styles/mixins/$1'
     },
     transform: {
