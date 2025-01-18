@@ -8,8 +8,13 @@ export default defineConfig({
     },
     css: {
         modules: {
-            scopeBehaviour: 'local',
-            generateScopedName: '[name]__[local]___[hash:base64:5]'
+            generateScopedName: (name, filename) => {
+                const file = filename
+                    .split('/')
+                    .pop()
+                    .replace('.module.scss', '')
+                return `${file}__${name}`
+            }
         }
     },
     resolve: {
