@@ -11,3 +11,13 @@ test('renderiza partidas do dia', async () => {
 
     expect(screen.getByText('Partidas do dia')).toBeInTheDocument()
 })
+
+test('renderiza partidas recentes', async () => {
+    render(<App />)
+
+    await act(async () => {
+        await Promise.resolve()
+    })
+
+    expect(screen.getByText('Partidas recentes')).toBeInTheDocument()
+})
