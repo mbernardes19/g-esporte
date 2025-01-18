@@ -1,0 +1,15 @@
+.container {
+    @apply flex w-[280px] rounded-xl flex-col bg-gray-dark p-6 mr-4 text-center;
+
+    .equipe-container {
+        @apply flex;
+    }
+
+    .placar-container {
+        @apply flex mx-12;
+    }
+
+    .info {
+        @apply mt-4 flex flex-col justify-center;
+    }
+}

@@ -3,7 +3,7 @@ export type JogosDia = {
     GolsEquipe1: number
     Equipe2: string
     GolsEquipe2: number
-    Status: string
+    Status: PartidaStatus
     Data: string
 }
 
@@ -69,4 +69,9 @@ export type DadosPartida = {
     PosseBola: PosseBola[]
     Lances: Lance[]
     ClassificacaoGrupo: ClassificacaoGrupo[]
+}
+
+export enum PartidaStatus {
+    EM_ANDAMENTO = 'Em Andamento',
+    FINALIZADO = 'Finalizado'
 }
