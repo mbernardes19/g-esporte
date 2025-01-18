@@ -1,0 +1,14 @@
+@use '@mixins/typography';
+
+.container {
+    @apply w-full mb-12 flex flex-col bg-gray p-6;
+
+    .titulo {
+        @include typography.h-lg;
+        @apply mb-4;
+    }
+
+    .content {
+        @apply flex flex-col md:flex-row;
+    }
+}
