@@ -1,8 +1,8 @@
-if (!process.env.REACT_APP_API_ENDPOINT) {
+if (!import.meta.env.VITE_API_ENDPOINT) {
     throw new Error('Variável de ambiente API_ENDPOINT vazia')
 }
 
 export const env = {
-    apiEndpoint: process.env.REACT_APP_API_ENDPOINT,
-    debug: process.env.REACT_APP_DEBUG === 'true'
+    apiEndpoint: import.meta.env.VITE_API_ENDPOINT,
+    debug: import.meta.env.VITE_DEBUG === 'true'
 }
