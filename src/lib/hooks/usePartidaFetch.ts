@@ -1,6 +1,6 @@
-import { DadosPartida } from '../../types/api'
-import { env } from '../env'
-import { useFetch } from './useFetch'
+import { DadosPartida } from '@customTypes/api'
+import { env } from '@lib/env'
+import { useFetch } from '@lib/hooks/useFetch'
 
 export const usePartidaFetch = () => {
     const { data, error, isLoading } = useFetch<DadosPartida>(env.apiEndpoint)

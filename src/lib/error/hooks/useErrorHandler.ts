@@ -1,5 +1,5 @@
-import { ApiError } from '../ApiError'
-import errorsJson from '../errors.json'
+import { ApiError } from '@lib/error/ApiError'
+import errorsJson from '@lib/error/errors.json'
 
 export type ErrorInfo = {
     title: string

@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react'
-import { useErrorHandler } from 'src/lib/error/hooks/useErrorHandler'
-import errorsJson from '../../lib/error/errors.json'
-import { ApiError } from 'src/lib/error/ApiError'
+import { useErrorHandler } from '@lib/error/hooks/useErrorHandler'
+import errorsJson from '@lib/error/errors.json'
+import { ApiError } from '@lib/error/ApiError'
 
 test('retorna mensagem de erro padrão para erro comum', () => {
     const error = new Error('erro comum')

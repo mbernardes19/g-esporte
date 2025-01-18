@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/jest": "^27.5.2",
     "@types/node": "^16.18.124",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.13",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-error-boundary": "^5.0.0",
@@ -46,6 +47,7 @@
     "@testing-library/react": "^16.2.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.6.0",
+    "@types/jest": "^29.5.14",
     "ajv": "^8.17.1",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
@@ -61,5 +63,13 @@
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": "eslint --fix --quiet"
+  },
+  "jest": {
+    "moduleNameMapper": {
+        "^@lib/(.*)$": "<rootDir>/src/lib/$1",
+        "^@components/(.*)$": "<rootDir>/src/components/$1",
+        "^@customTypes/(.*)$": "<rootDir>/src/customTypes/$1",
+        "^@mixins/(.*)$": "<rootDir>/src/styles/mixins/$1"
+    }
   }
 }

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import { ErrorComponent } from 'src/components/ErrorComponent/ErrorComponent'
-import { ApiError } from 'src/lib/error/ApiError'
-import errorsJson from '../lib/error/errors.json'
+import { ErrorComponent } from '@components/ErrorComponent/ErrorComponent'
+import { ApiError } from '@lib/error/ApiError'
+import errorsJson from '@lib/error/errors.json'
 
 test('renderiza uma mensagem de erro genérico', () => {
     render(<ErrorComponent error={new Error('new error')} />)

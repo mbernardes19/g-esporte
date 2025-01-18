@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { FallbackProps } from 'react-error-boundary'
-import { useErrorHandler } from 'src/lib/error/hooks/useErrorHandler'
+import { useErrorHandler } from '@lib/error/hooks/useErrorHandler'
 
 type ErrorComponentProps = {
     error: Error

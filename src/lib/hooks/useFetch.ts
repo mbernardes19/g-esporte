@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { apiHandler } from '../api'
+import { apiHandler } from '@lib/api'
 
 type UseFetchOptions = RequestInit
 

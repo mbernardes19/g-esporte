@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { EquipeCard } from 'src/components/EquipeCard/EquipeCard'
+import { EquipeCard } from '@components/EquipeCard/EquipeCard'
 
 test('renderiza EquipeCard com escudo e nome da equipe', async () => {
     render(<EquipeCard nome="Botafogo" />)

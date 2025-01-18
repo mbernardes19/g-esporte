@@ -1,10 +1,10 @@
 import { renderHook } from '@testing-library/react'
-import { useFetch } from 'src/lib/hooks/useFetch'
-import { apiHandler } from 'src/lib/api'
+import { useFetch } from '@lib/hooks/useFetch'
+import { apiHandler } from '@lib/api'
 import { act } from 'react'
-import { ApiError } from 'src/lib/error/ApiError'
+import { ApiError } from '@lib/error/ApiError'
 
-jest.mock('src/lib/api', () => ({
+jest.mock('@lib/api', () => ({
     apiHandler: jest.fn()
 }))
 

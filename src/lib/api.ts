@@ -1,5 +1,5 @@
 import { env } from './env'
-import { ApiError } from './error/ApiError'
+import { ApiError } from '@lib/error/ApiError'
 
 type ApiHandlerOptions = {
     method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
