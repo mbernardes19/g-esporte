@@ -5,7 +5,7 @@ import cn from 'classnames'
 
 const escudosMap: Record<string, string> = escudos
 
-type TamanhoEquipeCard = 'xs' | 'sm' | 'md' | 'lg'
+export type TamanhoEquipeCard = 'xs' | 'sm' | 'md' | 'lg'
 
 export type EquipeCardProps = {
     nome: string

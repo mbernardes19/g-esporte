@@ -1,3 +1,9 @@
 .main-container {
     @apply w-full px-4 md:px-12
 }
+
+button {
+    &:hover {
+        @apply bg-yellow;
+    }
+}
