@@ -9,7 +9,7 @@ export const apiHandler = async (
     url: string,
     { method = 'GET', ...fetchOptions }: ApiHandlerOptions = {}
 ) => {
-    if (env.test) {
+    if (env.debug) {
         return (await import('../test/mocks/dadosPartida.json')).default
     }
     try {

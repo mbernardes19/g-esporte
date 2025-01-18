@@ -1,6 +1,13 @@
 import { apiHandler } from 'src/lib/api'
 import { ApiError } from 'src/lib/error/ApiError'
 
+jest.mock('src/lib/env', () => ({
+    env: {
+        apiEndpoint: '/test-api-endpoint',
+        debug: false
+    }
+}))
+
 beforeEach(() => {
     global.fetch = jest.fn()
 })

@@ -4,5 +4,5 @@ if (!process.env.REACT_APP_API_ENDPOINT) {
 
 export const env = {
     apiEndpoint: process.env.REACT_APP_API_ENDPOINT,
-    test: process.env.REACT_APP_TEST === 'true'
+    debug: process.env.REACT_APP_DEBUG === 'true'
 }
