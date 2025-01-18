@@ -1,0 +1,27 @@
+.container {
+    @apply flex flex-col items-center w-full;
+    &.horizontal {
+        @apply flex flex-row;
+    }
+    &.sm {
+        .escudo {
+            @apply h-10;
+        }
+    }
+    &.md {
+        .escudo {
+            @apply h-16;
+        }
+    }
+    &.lg {
+        .escudo {
+            @apply h-40;
+        }
+    }
+    .escudo {
+        @apply max-w-[200px];
+    }
+    .titulo {
+        @apply font-bold;
+    }
+}
