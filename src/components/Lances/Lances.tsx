@@ -3,6 +3,7 @@ import { Lance } from '../../types/api'
 import { usePartidaAtual } from '@lib/hooks/usePartidaAtual'
 import { LanceCard } from '../LanceCard/LanceCard'
 import s from './Lances.module.scss'
+import Skeleton from 'react-loading-skeleton'
 
 export type LancesProps = {
     lances: Lance[]
@@ -24,3 +25,17 @@ export const Lances: FC<LancesProps> = ({ lances }) => {
         </div>
     )
 }
+
+export const LancesLoader = () => (
+    <Skeleton
+        containerClassName="min-h-[400px] grid grid-cols-1 md:grid-cols-3 gap-4 w-full"
+        className="aspect-square !w-full"
+        baseColor="#a1a5ab"
+        highlightColor="#dadfe6"
+        count={4}
+        inline
+        duration={0.75}
+    />
+)
+
+export default Lances
