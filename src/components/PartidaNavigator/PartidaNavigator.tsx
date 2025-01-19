@@ -43,20 +43,22 @@ export const PartidaNavigator: FC<PartidaNavigatorProps> = ({
 
     return (
         <div className={s['container']}>
-            <ul>
-                {navItems.map((item, idx) => (
-                    <li key={idx}>
-                        <button
-                            className={cn({
-                                [s['selected']]: activeSection === item
-                            })}
-                            onClick={() => handleNavigation(item)}
-                        >
-                            {navLabels[item]}
-                        </button>
-                    </li>
-                ))}
-            </ul>
+            <div className={s['navigator']}>
+                <ul>
+                    {navItems.map((item, idx) => (
+                        <li key={idx}>
+                            <button
+                                className={cn({
+                                    [s['selected']]: activeSection === item
+                                })}
+                                onClick={() => handleNavigation(item)}
+                            >
+                                {navLabels[item]}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }

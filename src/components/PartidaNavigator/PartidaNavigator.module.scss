@@ -1,6 +1,12 @@
-
 .container {
-    @apply fixed;
+    @apply h-[50px] relative z-50;
+}
+.navigator {
+    @apply fixed bg-purple h-[50px];
+
+    ul {
+        @apply flex;
+    }
 }
 .selected {
     @apply bg-green;
