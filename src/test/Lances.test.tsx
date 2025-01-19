@@ -204,5 +204,5 @@ test('renderiza todos os lances com imagens dos times', async () => {
     const lancesRenderizados = screen.getAllByAltText('Botafogo')
     expect(lancesRenderizados.length).toBe(31)
     expect(screen.getAllByAltText('Botafogo')[0]).toBeInTheDocument()
-    expect(screen.getAllByAltText('SaoPaulo')[0]).toBeInTheDocument()
+    expect(screen.getAllByAltText('São Paulo')[0]).toBeInTheDocument()
 })
