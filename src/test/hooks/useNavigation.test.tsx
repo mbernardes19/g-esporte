@@ -42,3 +42,13 @@ test('Faz push de path absoluto ao URL atual', async () => {
 
     expect(result.current.path).toBe('https://novo-url.com')
 })
+
+test('Fornece último segmento da página em variável', async () => {
+    const { result } = renderHook(() => useNavigation(), { wrapper })
+
+    await act(async () => {
+        result.current.push('/novo-path')
+    })
+
+    expect(result.current.lastSegment).toBe('novo-path')
+})

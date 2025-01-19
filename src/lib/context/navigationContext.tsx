@@ -9,15 +9,20 @@ import {
 export type NavigationContextType = {
     path: string
     push: (url: string) => void
+    lastSegment: string
 }
 
 export const NavigationContext = createContext<NavigationContextType>({
     path: '',
-    push: () => ''
+    push: () => '',
+    lastSegment: ''
 })
 
 export const NavigationProvider: FC<PropsWithChildren> = ({ children }) => {
     const [path, setPath] = useState(window.location.href)
+    const [lastSegment, setLastSegment] = useState(
+        window.location.href.split('/').pop() ?? ''
+    )
 
     const push = (newPath: string) => {
         const isRelative = newPath.startsWith('/')
@@ -26,10 +31,11 @@ export const NavigationProvider: FC<PropsWithChildren> = ({ children }) => {
 
     useEffect(() => {
         window.location.href = path
+        setLastSegment(path.split('/').pop() ?? '')
     }, [path])
 
     return (
-        <NavigationContext.Provider value={{ path, push }}>
+        <NavigationContext.Provider value={{ path, push, lastSegment }}>
             {children}
         </NavigationContext.Provider>
     )
