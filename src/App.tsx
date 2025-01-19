@@ -29,8 +29,8 @@ function App() {
         <div className="App">
             <Navbar items={partida.ListaPartidas} />
             <main className="main-container">
-                <PartidaNavigator dadosPartida={partida} />
                 <PartidaProvider dados={partida}>
+                    <PartidaNavigator dadosPartida={partida} />
                     <Section id={'JogosDia'} titulo="Partidas do dia">
                         {partida?.JogosDia.map(
                             (
@@ -64,11 +64,7 @@ function App() {
                             <p>{partida.MediaGols.MediaPorJogo}</p>
                         </div>
                     </Section>
-                    <Section
-                        id={'Lances'}
-                        titulo="Lances"
-                        className="centralize"
-                    >
+                    <Section id="Lances" titulo="Lances" className="centralize">
                         <LazyWrapper
                             Component={LazyLances}
                             className="w-full"
