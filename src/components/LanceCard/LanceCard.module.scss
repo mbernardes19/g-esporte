@@ -1,0 +1,30 @@
+@use '@mixins/typography.scss';
+
+.container {
+    @apply flex flex-col aspect-square bg-orange p-4 mr-4 mb-4 rounded-xl;
+
+    h3 {
+        @include typography.h-md;
+        @apply text-center;
+    }
+
+    .lance-group {
+        @apply flex flex-col items-center justify-center flex-1 gap-6;
+        .equipe {
+            @apply flex gap-4;
+
+            .escudo {
+                @apply w-auto;
+            }
+
+            p {
+                @include typography.h-2xl;
+                @apply font-normal;
+            }
+        }
+    }
+
+    .total {
+        @apply text-center;
+    }
+}

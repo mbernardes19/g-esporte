@@ -32,9 +32,9 @@ export type PosseBola = {
 
 export type Lance = {
     Descricao: string
-    Total: number
+    Total: number | null
 } & {
-    [key: string]: string | number
+    [key: string]: string | number | null
 }
 
 export type Classificacao = {

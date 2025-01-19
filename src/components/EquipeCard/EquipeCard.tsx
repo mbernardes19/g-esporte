@@ -12,9 +12,11 @@ export type EquipeCardProps = {
     somenteEscudo?: boolean
     tamanho?: TamanhoEquipeCard
     horizontal?: boolean
+    className?: string
 }
 
 export const EquipeCard: FC<EquipeCardProps> = ({
+    className,
     nome,
     somenteEscudo,
     tamanho = 'sm',
@@ -23,7 +25,8 @@ export const EquipeCard: FC<EquipeCardProps> = ({
     return (
         <div
             className={cn(s['container'], s[tamanho], {
-                [s['horizontal']]: horizontal
+                [s['horizontal']]: horizontal,
+                [className ?? '']: className
             })}
         >
             <img className={s['escudo']} src={escudosMap[nome]} alt={nome} />
