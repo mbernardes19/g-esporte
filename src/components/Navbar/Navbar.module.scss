@@ -1,0 +1,24 @@
+.nav-container {
+    @apply flex md:flex-col min-h-[5rem] md:min-w-[13rem];
+}
+
+.desktop-nav {
+    @apply hidden basis-0 md:block md:basis-[13rem];
+}
+
+.mobile-nav-container {
+    @apply fixed relative z-50;
+
+    .mobile-nav-toggle {
+        @apply block md:hidden w-12 h-12 fixed;
+    }
+}
+
+.nav-links {
+    @apply bg-green fixed h-screen invisible transition-[all] translate-x-[-100%];
+    @apply md:block md:static md:visible md:translate-x-0 md:basis-[13rem] md:min-w-[13rem] md:fixed;
+
+    &.expanded {
+        @apply visible md:hidden translate-x-0;
+    }
+}
