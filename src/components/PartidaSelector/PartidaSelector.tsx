@@ -1,28 +1,17 @@
 import { PartidaCard } from '@components/PartidaCard/PartidaCard'
 import { ListaPartida } from '@customTypes/api'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import s from './PartidaSelector.module.scss'
 import cn from 'classnames'
+import { getEquipesFromPartidaText } from '@lib/utils/getEquipesFromPartidaText'
+import { usePartidaAtual } from '@lib/hooks/usePartidaAtual'
 
 type PartidaSelectorProps = {
     partidas: ListaPartida[]
 }
 
-const getEquipesFromPartidaText = (partidaText: string) => {
-    const equipes = partidaText.split(' x ')
-    return {
-        equipe1: equipes[0],
-        equipe2: equipes[1]
-    }
-}
-
-const findSelectedPartida = (partidas: ListaPartida[]) =>
-    partidas.find((partida) => partida.Selected)
-
 export const PartidaSelector: FC<PartidaSelectorProps> = ({ partidas }) => {
-    const [selectedPartida, setSelectedPartida] = useState<string>(
-        findSelectedPartida(partidas)?.Codigo ?? ''
-    )
+    const { codigoPartidaAtual, setCodigoPartidaAtual } = usePartidaAtual()
 
     return (
         <>
@@ -34,14 +23,15 @@ export const PartidaSelector: FC<PartidaSelectorProps> = ({ partidas }) => {
                 return (
                     <PartidaCard
                         className={cn({
-                            [s['selected']]: selectedPartida === partida.Codigo
+                            [s['selected']]:
+                                codigoPartidaAtual === partida.Codigo
                         })}
                         key={idx}
                         equipe1={equipe1}
                         equipe2={equipe2}
                         tamanhoEquipeCards="sm"
                         somenteEscudos
-                        onClick={() => setSelectedPartida(partida.Codigo)}
+                        onClick={() => setCodigoPartidaAtual(partida.Codigo)}
                     />
                 )
             })}
