@@ -6,6 +6,7 @@ import { Section } from './components/Section/Section'
 import { usePartidaFetch } from './lib/hooks/usePartidaFetch'
 import { PartidaProvider } from '@lib/context/partidaContext'
 import { Lances } from '@components/Lances/Lances'
+import { Loader } from '@components/UI/Loader/Loader'
 
 function App() {
     const { partida, error, isLoading } = usePartidaFetch()
@@ -15,7 +16,7 @@ function App() {
     }
 
     if (isLoading || !partida) {
-        return <div>Loading...</div>
+        return <Loader />
     }
 
     return (
