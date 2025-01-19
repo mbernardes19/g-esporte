@@ -51,7 +51,7 @@ export type Classificacao = {
     CartoesAmarelos: number
     CartoesVermelhos: number
     Aproveitamento: string
-    Movimentacao: number | null
+    Movimentacao: number | string | null
     MediaPontos: number
 }
 
