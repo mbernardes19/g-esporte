@@ -1,3 +1,5 @@
+@use '@mixins/typography';
+
 .container {
     @apply flex flex-col items-center w-full;
     &.horizontal {
@@ -7,21 +9,27 @@
         .escudo {
             @apply h-10;
         }
+        .titulo {
+            @include typography.h-sm;
+        }
     }
     &.md {
         .escudo {
             @apply h-16;
+        }
+        .titulo {
+            @include typography.h-md;
         }
     }
     &.lg {
         .escudo {
             @apply h-40;
         }
+        .titulo {
+            @include typography.h-lg;
+        }
     }
     .escudo {
         @apply max-w-[200px];
-    }
-    .titulo {
-        @apply font-bold;
     }
 }
