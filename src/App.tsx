@@ -1,4 +1,3 @@
-import { PartidaSelector } from '@components/PartidaSelector/PartidaSelector'
 import './App.css'
 import { ErrorComponent } from './components/ErrorComponent/ErrorComponent'
 import { PartidaCard } from './components/PartidaCard/PartidaCard'
@@ -47,9 +46,6 @@ function App() {
                                 />
                             )
                         )}
-                    </Section>
-                    <Section titulo="Partidas recentes">
-                        <PartidaSelector partidas={partida.ListaPartidas} />
                     </Section>
                     <Section titulo="Lances" className="centralize">
                         <Lances lances={partida.Lances} />
