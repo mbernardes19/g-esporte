@@ -1,5 +1,5 @@
 .main-container {
-    @apply w-full px-4 md:px-12
+    @apply w-full px-4 md:px-12 bg-[#F5F5F5];
 }
 
 button {
