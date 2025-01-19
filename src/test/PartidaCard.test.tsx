@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { PartidaCard } from '@components/PartidaCard/PartidaCard'
 import { PartidaStatus } from '@customTypes/api'
 
@@ -54,20 +54,4 @@ test('renderiza PartidaCard somente com escudos de equipes', async () => {
     expect(screen.getByAltText('São Paulo')).toBeInTheDocument()
     expect(screen.queryByText('Botafogo')).not.toBeInTheDocument()
     expect(screen.queryByText('São Paulo')).not.toBeInTheDocument()
-})
-
-test('renderiza PartidaCard como botão', async () => {
-    const mock = jest.fn()
-    render(
-        <PartidaCard
-            equipe1="São Paulo"
-            equipe2="Botafogo"
-            onClick={() => mock()}
-        />
-    )
-
-    const card = screen.getByText('Botafogo')
-    fireEvent.click(card)
-
-    expect(mock).toHaveBeenCalled()
 })

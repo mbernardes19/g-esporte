@@ -16,7 +16,7 @@ export type PartidaCardProps = {
     tamanhoEquipeCards?: TamanhoEquipeCard
     className?: string
     somenteEscudos?: boolean
-    onClick?: React.MouseEventHandler
+    compact?: boolean
 }
 
 export const PartidaCard: FC<PartidaCardProps> = ({
@@ -29,20 +29,44 @@ export const PartidaCard: FC<PartidaCardProps> = ({
     status,
     tamanhoEquipeCards,
     somenteEscudos,
-    onClick
+    compact
 }) => {
     const comPlacar = golsEquipe1 !== undefined && golsEquipe2 !== undefined
     const comInfo = data !== undefined || status !== undefined
 
-    const CardContainer = onClick ? 'button' : 'div'
+    if (compact) {
+        return (
+            <div
+                className={cn(s['compact-container'], {
+                    [className ?? '']: className
+                })}
+            >
+                <EquipeCard
+                    nome={equipe1}
+                    tamanho={tamanhoEquipeCards ?? 'md'}
+                    somenteEscudo={somenteEscudos}
+                />
+                {comPlacar && (
+                    <Placar
+                        golsEquipe1={golsEquipe1}
+                        golsEquipe2={golsEquipe2}
+                    />
+                )}
+                <EquipeCard
+                    nome={equipe2}
+                    tamanho={tamanhoEquipeCards ?? 'md'}
+                    somenteEscudo={somenteEscudos}
+                />
+            </div>
+        )
+    }
 
     return (
-        <CardContainer
+        <div
             className={cn(s['container'], {
-                [className!]: className,
-                [s['sem-placar']]: !comPlacar
+                [s['sem-placar']]: !comPlacar,
+                [className!]: className
             })}
-            onClick={onClick}
         >
             <ConditionalWrapper
                 condition={comInfo}
@@ -78,6 +102,6 @@ export const PartidaCard: FC<PartidaCardProps> = ({
                     {status && <span>{status}</span>}
                 </div>
             )}
-        </CardContainer>
+        </div>
     )
 }

@@ -21,3 +21,8 @@
         }
     }
 }
+
+.compact-container {
+    @apply flex w-full;
+    background-color: transparent;
+}

@@ -11,7 +11,7 @@ type PartidaSelectorProps = {
 }
 
 export const PartidaSelector: FC<PartidaSelectorProps> = ({ partidas }) => {
-    const { codigoPartidaAtual, setCodigoPartidaAtual } = usePartidaAtual()
+    const { codigoPartidaAtual } = usePartidaAtual()
 
     return (
         <>
@@ -31,7 +31,6 @@ export const PartidaSelector: FC<PartidaSelectorProps> = ({ partidas }) => {
                         equipe2={equipe2}
                         tamanhoEquipeCards="sm"
                         somenteEscudos
-                        onClick={() => setCodigoPartidaAtual(partida.Codigo)}
                     />
                 )
             })}
