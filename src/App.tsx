@@ -7,6 +7,7 @@ import { usePartidaFetch } from './lib/hooks/usePartidaFetch'
 import { PartidaProvider } from '@lib/context/partidaContext'
 import { Lances } from '@components/Lances/Lances'
 import { Loader } from '@components/UI/Loader/Loader'
+import { Navbar } from '@components/Navbar/Navbar'
 
 function App() {
     const { partida, error, isLoading } = usePartidaFetch()
@@ -21,6 +22,7 @@ function App() {
 
     return (
         <div className="App">
+            <Navbar items={partida.ListaPartidas} />
             <main className="main-container">
                 <PartidaProvider dados={partida}>
                     <Section titulo="Partidas do dia">

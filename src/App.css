@@ -13,3 +13,7 @@ button {
         @apply justify-center;
     }
 }
+
+.App {
+    @apply flex flex-col md:flex-row;
+}
