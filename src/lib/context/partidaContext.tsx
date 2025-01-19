@@ -12,6 +12,7 @@ import { DadosPartida } from '../../types/api'
 import { findSelectedPartida } from '@lib/utils/findSelectedPartida'
 import { getEquipesFromPartidaText } from '@lib/utils/getEquipesFromPartidaText'
 import { useNavigation } from '@lib/hooks/useNavigation'
+import { getGolsFromLances } from '@lib/utils/getGolsFromLances'
 
 export type PartidaProviderProps = {
     dados: DadosPartida
@@ -21,6 +22,8 @@ export type DadosPartidaSelecionada = {
     equipe1: string
     equipe2: string
     codigoPartidaAtual: string
+    golsEquipe1: number
+    golsEquipe2: number
 } & DadosPartida
 
 export type PartidaContextType = DadosPartidaSelecionada & {
@@ -31,6 +34,8 @@ export const PartidaContext = createContext<PartidaContextType>({
     equipe1: '',
     equipe2: '',
     codigoPartidaAtual: '',
+    golsEquipe1: 0,
+    golsEquipe2: 0,
     setCodigoPartidaAtual: () => '',
     ListaPartidas: [],
     PartidaAndamento: false,
@@ -73,6 +78,12 @@ export const PartidaProvider: FC<PartidaProviderProps> = ({
             ...dadosPartida,
             equipe1,
             equipe2,
+            golsEquipe1: dadosPartida
+                ? getGolsFromLances(dadosPartida, equipe1)
+                : 0,
+            golsEquipe2: dadosPartida
+                ? getGolsFromLances(dadosPartida, equipe2)
+                : 0,
             codigoPartidaAtual,
             setCodigoPartidaAtual
         }),
