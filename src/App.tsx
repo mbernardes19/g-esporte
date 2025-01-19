@@ -1,16 +1,16 @@
 import './App.css'
+import 'react-loading-skeleton/dist/skeleton.css'
 import { ErrorComponent } from './components/ErrorComponent/ErrorComponent'
 import { PartidaCard } from './components/PartidaCard/PartidaCard'
 import { Section } from './components/Section/Section'
 import { usePartidaFetch } from './lib/hooks/usePartidaFetch'
 import { PartidaProvider } from '@lib/context/partidaContext'
-import { Loader } from '@components/UI/Loader/Loader'
+import { SpinnerLoader } from '@components/UI/Loader/SpinnerLoader/SpinnerLoader'
 import { Navbar } from '@components/Navbar/Navbar'
 import { PartidaNavigator } from '@components/PartidaNavigator/PartidaNavigator'
 import { LazyWrapper } from '@components/LazyWrapper/LazyWrapper'
-import { LancesLoader } from '@components/Lances/Lances'
-import 'react-loading-skeleton/dist/skeleton.css'
 import { lazy } from 'react'
+import { GridSkeletonLoader } from '@components/UI/Loader/GridSkeletonLoader/GridSkeletonLoader'
 
 const LazyLances = lazy(() => import('@components/Lances/Lances'))
 
@@ -22,7 +22,7 @@ function App() {
     }
 
     if (isLoading || !partida) {
-        return <Loader />
+        return <SpinnerLoader />
     }
 
     return (
@@ -72,7 +72,7 @@ function App() {
                         <LazyWrapper
                             Component={LazyLances}
                             className="w-full"
-                            fallback={<LancesLoader />}
+                            fallback={<GridSkeletonLoader />}
                             componentProps={{
                                 lances: partida.Lances
                             }}

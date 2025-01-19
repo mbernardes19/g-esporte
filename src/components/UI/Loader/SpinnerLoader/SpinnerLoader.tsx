@@ -1,6 +1,6 @@
-import s from './Loader.module.scss'
+import s from './SpinnerLoader.module.scss'
 
-export const Loader = () => {
+export const SpinnerLoader = () => {
     return (
         <div className="w-screen h-screen">
             <div className={s['loading-indicator']}>
