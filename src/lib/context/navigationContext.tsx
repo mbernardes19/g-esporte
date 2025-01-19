@@ -26,11 +26,13 @@ export const NavigationProvider: FC<PropsWithChildren> = ({ children }) => {
 
     const push = (newPath: string) => {
         const isRelative = newPath.startsWith('/')
-        setPath(isRelative ? `${path}${newPath}` : newPath)
+        setPath(isRelative ? `${window.location.origin}${newPath}` : newPath)
     }
 
     useEffect(() => {
-        window.location.href = path
+        if (path !== window.location.href) {
+            window.location.href = path
+        }
         setLastSegment(path.split('/').pop() ?? '')
     }, [path])
 

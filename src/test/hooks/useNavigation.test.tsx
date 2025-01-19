@@ -8,6 +8,7 @@ let wrapper: FC<PropsWithChildren>
 beforeEach(() => {
     Object.defineProperty(window, 'location', {
         value: {
+            origin: 'https://teste-url.com',
             href: 'https://teste-url.com'
         }
     })
