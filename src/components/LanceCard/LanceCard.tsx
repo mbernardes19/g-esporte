@@ -43,7 +43,7 @@ export const LanceCard: FC<LanceProps> = ({ lance, equipe1, equipe2 }) => {
                     <p>{lance[normalizedEquipe2]}</p>
                 </div>
             </div>
-            {Total && <div className={s['total']}>Total: {Total}</div>}
+            {!!Total && <div className={s['total']}>Total: {Total}</div>}
         </div>
     )
 }
