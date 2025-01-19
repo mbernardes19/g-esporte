@@ -11,7 +11,6 @@ export type EquipeCardProps = {
     nome: string
     somenteEscudo?: boolean
     tamanho?: TamanhoEquipeCard
-    horizontal?: boolean
     className?: string
 }
 
@@ -19,13 +18,11 @@ export const EquipeCard: FC<EquipeCardProps> = ({
     className,
     nome,
     somenteEscudo,
-    tamanho = 'sm',
-    horizontal
+    tamanho = 'sm'
 }) => {
     return (
         <div
             className={cn(s['container'], s[tamanho], {
-                [s['horizontal']]: horizontal,
                 [className ?? '']: className
             })}
         >
