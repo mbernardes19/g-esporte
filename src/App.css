@@ -7,3 +7,9 @@ button {
         @apply bg-yellow;
     }
 }
+
+.centralize {
+    [class*='Section__content'] {
+        @apply justify-center;
+    }
+}
