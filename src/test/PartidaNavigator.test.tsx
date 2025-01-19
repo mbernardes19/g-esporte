@@ -612,8 +612,7 @@ const mockedPartida: DadosPartida = {
 
 const scrollIntoViewMock = jest.fn()
 
-beforeAll(() => {
-    // Mockando o método scrollIntoView
+beforeEach(() => {
     Element.prototype.scrollIntoView = scrollIntoViewMock
 })
 
