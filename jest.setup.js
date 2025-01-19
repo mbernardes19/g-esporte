@@ -10,3 +10,17 @@ jest.mock('@lib/env', () => ({
         debug: 'false'
     }
 }))
+
+global.IntersectionObserver = class IntersectionObserver {
+    constructor(callback, options) {
+        this.callback = callback
+        this.options = options
+    }
+    observe = jest.fn()
+    unobserve = jest.fn()
+    disconnect = jest.fn()
+    takeRecords = jest.fn()
+    triggerIntersection = (entries) => {
+        this.callback(entries, this)
+    }
+}

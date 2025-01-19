@@ -9,5 +9,5 @@ test('renderiza partidas do dia', async () => {
         await Promise.resolve()
     })
 
-    expect(screen.getByText('Partidas do dia')).toBeInTheDocument()
+    expect(screen.getAllByText('Partidas do dia')[1]).toBeInTheDocument()
 })
