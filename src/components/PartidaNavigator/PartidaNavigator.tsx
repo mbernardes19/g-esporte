@@ -3,6 +3,8 @@ import { useElementInView } from '@lib/utils/hooks/useElementInView'
 import { FC, useState } from 'react'
 import cn from 'classnames'
 import s from './PartidaNavigator.module.scss'
+import { PartidaCard } from '@components/PartidaCard/PartidaCard'
+import { usePartidaAtual } from '@lib/hooks/usePartidaAtual'
 
 type PartidaNavigatorProps = {
     dadosPartida: DadosPartida
@@ -31,6 +33,7 @@ export const PartidaNavigator: FC<PartidaNavigatorProps> = ({
     const navItems = Object.keys(dadosPartida).filter(
         (key) => key !== 'ListaPartidas' && key !== 'PartidaAndamento'
     )
+    const { equipe1, equipe2, golsEquipe1, golsEquipe2 } = usePartidaAtual()
 
     useElementInView(
         navItems.map((item) => `#${item}`),
@@ -44,6 +47,16 @@ export const PartidaNavigator: FC<PartidaNavigatorProps> = ({
     return (
         <div className={s['container']}>
             <div className={s['navigator']}>
+                <PartidaCard
+                    className={s['partida']}
+                    equipe1={equipe1}
+                    equipe2={equipe2}
+                    golsEquipe1={golsEquipe1}
+                    golsEquipe2={golsEquipe2}
+                    tamanhoEquipeCards="sm"
+                    somenteEscudos
+                    compact
+                />
                 <ul>
                     {navItems.map((item, idx) => (
                         <li key={idx}>

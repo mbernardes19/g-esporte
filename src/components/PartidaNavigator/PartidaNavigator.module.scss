@@ -1,13 +1,21 @@
 .container {
-    @apply h-[50px] relative z-50;
+    @apply h-fit relative z-50 bg-[#ffffff] relative sticky top-0;
 }
 .navigator {
-    @apply fixed bg-purple h-[50px];
+    @apply fixed bg-[#ffffff] h-fit w-full sticky top-0 px-6 py-4;
 
     ul {
-        @apply flex;
+        @apply flex justify-center gap-4 overflow-x-scroll;
+
+        li {
+            @apply whitespace-nowrap;
+        }
     }
 }
 .selected {
     @apply bg-green;
+}
+
+.partida {
+    @apply mb-4;
 }
