@@ -16,7 +16,7 @@ export const LazyWrapper = <T extends Record<string, unknown>>({
     children,
     className
 }: LazyWrapperProps<T>) => {
-    const { ref, inView } = useInView()
+    const { ref, inView } = useInView({ triggerOnce: true })
 
     return (
         <div className={cn('w-full', className)} ref={ref}>
