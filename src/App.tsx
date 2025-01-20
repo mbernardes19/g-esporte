@@ -11,12 +11,14 @@ import { LazyWrapper } from '@components/LazyWrapper/LazyWrapper'
 import { lazy } from 'react'
 import { GridSkeletonLoader } from '@components/UI/Loader/GridSkeletonLoader/GridSkeletonLoader'
 import { PartidasDia } from '@components/PartidasDia/PartidasDia'
-import { TabelaClassificacao } from '@components/TabelaClassificacao/TabelaClassificacao'
 import { PosseBola } from '@components/PosseBola/PosseBola'
 import { Artilharia } from '@components/Artilharia/Artilharia'
 import { MediaGols } from '@components/MediaGols/MediaGols'
 
 const LazyLances = lazy(() => import('@components/Lances/Lances'))
+const LazyTabelaClassificacao = lazy(
+    () => import('@components/TabelaClassificacao/TabelaClassificacao')
+)
 
 function App() {
     const { partida, error, isLoading } = usePartidaFetch()
@@ -55,7 +57,11 @@ function App() {
                         />
                     </Section>
                     <Section id="ClassificacaoGrupo" titulo="Classificação">
-                        <TabelaClassificacao />
+                        <LazyWrapper
+                            Component={LazyTabelaClassificacao}
+                            className="w-full"
+                            fallback={<GridSkeletonLoader />}
+                        />
                     </Section>
                 </PartidaProvider>
             </main>
