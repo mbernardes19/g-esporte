@@ -1,6 +1,5 @@
 # g-esporte
 
-![license](https://img.shields.io/badge/license-MIT-blue.svg)
 ![build](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
 **g-esporte** é um projeto que utiliza tecnologias modernas como React, Vite e TailwindCSS, com o objetivo de oferecer uma aplicação rápida e eficiente.
