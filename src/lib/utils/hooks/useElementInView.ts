@@ -16,7 +16,8 @@ export const useElementInView = (
                     const observer = new IntersectionObserver(
                         (entries) => handler(entries[0]),
                         {
-                            threshold: 0.3
+                            threshold: 0,
+                            rootMargin: '114px 0px -50% 0px'
                         }
                     )
                     observer.observe(element)
