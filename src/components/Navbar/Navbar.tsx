@@ -18,7 +18,9 @@ export const Navbar: FC<NavbarProps> = ({ items }) => {
                     className={s['mobile-nav-toggle']}
                     onClick={() => setIsExpanded(!isExpanded)}
                 >
-                    Open
+                    <div />
+                    <div />
+                    <div />
                 </button>
             </div>
             <nav
