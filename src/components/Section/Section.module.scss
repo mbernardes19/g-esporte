@@ -1,7 +1,7 @@
 @use '@mixins/typography';
 
 .container {
-    @apply w-full mb-12 flex flex-col bg-white p-6 scroll-mt-[var(--h-navbar)] rounded-xl;
+    @apply w-full mb-12 flex flex-col bg-white p-6 scroll-mt-[var(--h-navbar)] rounded-xl max-w-[1200px] mx-auto;
 
     .titulo {
         @include typography.h-lg;
@@ -9,6 +9,6 @@
     }
 
     .content {
-        @apply flex flex-col md:flex-row flex-wrap;
+        @apply flex flex-col md:flex-row flex-wrap overflow-x-scroll;
     }
 }

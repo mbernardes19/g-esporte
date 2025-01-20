@@ -1,8 +1,8 @@
 .container {
-    @apply h-fit relative z-50 bg-white relative sticky top-[48px] md:top-0 rounded-b-xl border-b border-b-gray-card-background;
+    @apply h-fit relative z-50 bg-white relative sticky top-[48px] md:top-0 rounded-b-xl border-b border-b-gray-card-background max-w-[1200px] mx-auto;
 }
 .navigator {
-    @apply fixed bg-white h-fit w-full sticky top-[48px] md:top-0 px-6 py-4 rounded-b-xl;
+    @apply fixed bg-white h-fit w-full sticky top-[48px] md:top-0 px-6 py-4 rounded-b-xl max-w-[1200px] mx-auto;
 
     ul {
         @apply flex justify-center gap-4 overflow-x-scroll md:overflow-hidden;
