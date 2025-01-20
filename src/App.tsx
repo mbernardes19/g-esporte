@@ -11,6 +11,10 @@ import { LazyWrapper } from '@components/LazyWrapper/LazyWrapper'
 import { lazy } from 'react'
 import { GridSkeletonLoader } from '@components/UI/Loader/GridSkeletonLoader/GridSkeletonLoader'
 import { PartidasDia } from '@components/PartidasDia/PartidasDia'
+import { TabelaClassificacao } from '@components/TabelaClassificacao/TabelaClassificacao'
+import { PosseBola } from '@components/PosseBola/PosseBola'
+import { Artilharia } from '@components/Artilharia/Artilharia'
+import { MediaGols } from '@components/MediaGols/MediaGols'
 
 const LazyLances = lazy(() => import('@components/Lances/Lances'))
 
@@ -31,18 +35,17 @@ function App() {
             <main className="main-container">
                 <PartidaProvider dados={partida}>
                     <PartidaNavigator dadosPartida={partida} />
-                    <Section id={'JogosDia'} titulo="Partidas do dia">
+                    <Section id="JogosDia" titulo="Partidas do dia">
                         <PartidasDia />
                     </Section>
                     <Section id="MediaGols" titulo="Média de gols">
-                        <div>
-                            <h3>Gols totais</h3>
-                            <p>{partida.MediaGols.TotalGols}</p>
-                            <h3>Jogos totais</h3>
-                            <p>{partida.MediaGols.TotalJogos}</p>
-                            <h3>Média de gols por jogo</h3>
-                            <p>{partida.MediaGols.MediaPorJogo}</p>
-                        </div>
+                        <MediaGols />
+                    </Section>
+                    <Section id="Artilharia" titulo="Artilharia">
+                        <Artilharia />
+                    </Section>
+                    <Section id="PosseBola" titulo="Posse de bola">
+                        <PosseBola />
                     </Section>
                     <Section id="Lances" titulo="Lances" className="centralize">
                         <LazyWrapper
@@ -50,6 +53,9 @@ function App() {
                             className="w-full"
                             fallback={<GridSkeletonLoader />}
                         />
+                    </Section>
+                    <Section id="ClassificacaoGrupo" titulo="Classificação">
+                        <TabelaClassificacao />
                     </Section>
                 </PartidaProvider>
             </main>

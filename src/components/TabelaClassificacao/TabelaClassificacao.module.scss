@@ -1,0 +1,14 @@
+.table {
+    th {
+        @apply text-left p-4 pb-0;
+    }
+    td {
+        @apply p-4;
+    }
+    tr:nth-child(even) {
+        @apply bg-gray-card-background;
+    }
+    tr:nth-child(odd) {
+        @apply bg-white;
+    }     
+}
