@@ -30,7 +30,7 @@
 Clone o repositório:
 
 ```bash
-$ git clone https://github.com/seu-usuario/g-esporte.git
+$ git clone https://github.com/mbernardes19/g-esporte.git
 ```
 
 Instale as dependências:
