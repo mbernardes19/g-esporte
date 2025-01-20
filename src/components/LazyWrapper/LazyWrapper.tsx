@@ -5,7 +5,7 @@ import cn from 'classnames'
 type LazyWrapperProps<T extends Record<string, unknown>> = {
     Component: LazyExoticComponent<React.ComponentType<T>>
     fallback: JSX.Element
-    componentProps: T
+    componentProps?: T
     className?: string
 } & PropsWithChildren
 
@@ -23,7 +23,9 @@ export const LazyWrapper = <T extends Record<string, unknown>>({
             {inView ? (
                 <Suspense fallback={fallback}>
                     {/* @ts-expect-error Tipos não batem 100% mas não causa erros */}
-                    <Component {...componentProps}>{children}</Component>
+                    <Component {...(componentProps ?? {})}>
+                        {children}
+                    </Component>
                 </Suspense>
             ) : (
                 fallback

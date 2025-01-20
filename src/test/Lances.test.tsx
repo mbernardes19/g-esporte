@@ -2,13 +2,6 @@ import { render, screen } from '@testing-library/react'
 import { Lances } from '@components/Lances/Lances'
 import { Lance } from '@customTypes/api'
 
-jest.mock('@lib/hooks/usePartidaAtual', () => ({
-    usePartidaAtual: jest.fn(() => ({
-        equipe1: 'Botafogo',
-        equipe2: 'São Paulo'
-    }))
-}))
-
 const lances: Lance[] = [
     {
         Descricao: 'Gols',
@@ -198,8 +191,16 @@ const lances: Lance[] = [
     }
 ]
 
+jest.mock('@lib/hooks/usePartidaAtual', () => ({
+    usePartidaAtual: jest.fn(() => ({
+        equipe1: 'Botafogo',
+        equipe2: 'São Paulo',
+        Lances: lances
+    }))
+}))
+
 test('renderiza todos os lances com imagens dos times', async () => {
-    render(<Lances lances={lances} />)
+    render(<Lances />)
 
     const lancesRenderizados = screen.getAllByAltText('Botafogo')
     expect(lancesRenderizados.length).toBe(31)

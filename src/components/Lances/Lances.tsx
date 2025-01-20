@@ -1,19 +1,14 @@
-import { FC } from 'react'
-import { Lance } from '../../types/api'
+import { FC, PropsWithChildren } from 'react'
 import { usePartidaAtual } from '@lib/hooks/usePartidaAtual'
 import { LanceCard } from '../LanceCard/LanceCard'
 import s from './Lances.module.scss'
 
-export type LancesProps = {
-    lances: Lance[]
-}
-
-export const Lances: FC<LancesProps> = ({ lances }) => {
-    const { equipe1, equipe2 } = usePartidaAtual()
+export const Lances: FC<PropsWithChildren> = () => {
+    const { equipe1, equipe2, Lances } = usePartidaAtual()
 
     return (
         <div className={s['container']}>
-            {lances.map((lance, idx) => (
+            {Lances.map((lance, idx) => (
                 <LanceCard
                     key={idx}
                     equipe1={equipe1}

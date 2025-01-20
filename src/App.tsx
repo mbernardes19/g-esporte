@@ -1,7 +1,6 @@
 import './App.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { ErrorComponent } from './components/ErrorComponent/ErrorComponent'
-import { PartidaCard } from './components/PartidaCard/PartidaCard'
 import { Section } from './components/Section/Section'
 import { usePartidaFetch } from './lib/hooks/usePartidaFetch'
 import { PartidaProvider } from '@lib/context/partidaContext'
@@ -11,6 +10,7 @@ import { PartidaNavigator } from '@components/PartidaNavigator/PartidaNavigator'
 import { LazyWrapper } from '@components/LazyWrapper/LazyWrapper'
 import { lazy } from 'react'
 import { GridSkeletonLoader } from '@components/UI/Loader/GridSkeletonLoader/GridSkeletonLoader'
+import { PartidasDia } from '@components/PartidasDia/PartidasDia'
 
 const LazyLances = lazy(() => import('@components/Lances/Lances'))
 
@@ -32,27 +32,7 @@ function App() {
                 <PartidaProvider dados={partida}>
                     <PartidaNavigator dadosPartida={partida} />
                     <Section id={'JogosDia'} titulo="Partidas do dia">
-                        {partida?.JogosDia.map(
-                            (
-                                {
-                                    Equipe1,
-                                    Equipe2,
-                                    GolsEquipe1,
-                                    GolsEquipe2,
-                                    Status
-                                },
-                                idx
-                            ) => (
-                                <PartidaCard
-                                    key={idx}
-                                    equipe1={Equipe1}
-                                    equipe2={Equipe2}
-                                    golsEquipe1={GolsEquipe1}
-                                    golsEquipe2={GolsEquipe2}
-                                    status={Status}
-                                />
-                            )
-                        )}
+                        <PartidasDia />
                     </Section>
                     <Section id="MediaGols" titulo="Média de gols">
                         <div>
@@ -69,9 +49,6 @@ function App() {
                             Component={LazyLances}
                             className="w-full"
                             fallback={<GridSkeletonLoader />}
-                            componentProps={{
-                                lances: partida.Lances
-                            }}
                         />
                     </Section>
                 </PartidaProvider>
