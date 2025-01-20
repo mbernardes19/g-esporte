@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+# g-esporte
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![license](https://img.shields.io/badge/license-MIT-blue.svg)
+![build](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
-## Available Scripts
+**g-esporte** é um projeto que utiliza tecnologias modernas como React, Vite e TailwindCSS, com o objetivo de oferecer uma aplicação rápida e eficiente.
 
-In the project directory, you can run:
+## Tabela de Conteúdo
 
-### `npm start`
+- [Recursos](#recursos)
+- [Requisitos](#requisitos)
+- [Instalação](#instalação)
+- [Scripts Disponíveis](#scripts-disponíveis)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Recursos
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **React 19.0.0** para componentes reutilizáveis e uma UI declarativa.
+- **Vite** para desenvolvimento rápido e eficiente.
+- **TailwindCSS e SCSS** para estilização flexível e moderna.
+- **Husky e lint-staged** para garantir qualidade de código.
+- **Jest e React Testing Library** para testes confiáveis.
+- **ESLint e Prettier** para manter padrões consistentes de código.
 
-### `npm test`
+## Requisitos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js >= 16.x
+- npm >= 8.x ou pnpm/yarn equivalente
 
-### `npm run build`
+## Instalação
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone o repositório:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+$ git clone https://github.com/seu-usuario/g-esporte.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Instale as dependências:
 
-### `npm run eject`
+```bash
+$ npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Para iniciar o servidor de desenvolvimento:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+$ npm run dev
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Scripts Disponíveis
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **`npm run dev`**: Inicia o servidor de desenvolvimento.
+- **`npm run build`**: Compila o projeto para produção.
+- **`npm run preview`**: Visualiza o build de produção localmente.
+- **`npm run test`**: Executa os testes unitários em modo watch.
+- **`npm run test:ci`**: Executa os testes para integração contínua.
+- **`npm run test:coverage`**: Gera o relatório de cobertura de testes.
+- **`npm run lint`**: Executa o ESLint para verificação de padrões de código.
+- **`npm run lint:fix`**: Corrige problemas detectados pelo ESLint.
+- **`npm run format`**: Formata o código usando Prettier.
