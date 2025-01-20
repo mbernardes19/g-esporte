@@ -1,5 +1,5 @@
 .container {
-    @apply flex w-[280px] rounded-xl flex-col bg-gray-dark p-6 mr-4 text-center;
+    @apply flex w-[280px] rounded-xl flex-col bg-gray-card-background p-6 mr-4 text-center;
 
     .equipe-container {
         @apply flex w-full;
@@ -25,4 +25,8 @@
 .compact-container {
     @apply flex w-full;
     background-color: transparent;
+
+    .compact-placar {
+        @apply max-w-[100px];
+    }
 }

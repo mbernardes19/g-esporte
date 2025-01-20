@@ -1,6 +1,6 @@
 .link {
-    @apply block;
+    @apply block text-white p-4;
 }
 .selected {
-    @apply bg-orange;
+    @apply bg-gray-hover;
 }

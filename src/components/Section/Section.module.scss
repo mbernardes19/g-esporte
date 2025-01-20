@@ -1,7 +1,7 @@
 @use '@mixins/typography';
 
 .container {
-    @apply w-full mb-12 flex flex-col bg-gray p-6 scroll-mt-[var(--h-navbar)];
+    @apply w-full mb-12 flex flex-col bg-white p-6 scroll-mt-[var(--h-navbar)] rounded-xl;
 
     .titulo {
         @include typography.h-lg;

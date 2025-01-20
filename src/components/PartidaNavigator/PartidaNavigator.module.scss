@@ -1,11 +1,11 @@
 .container {
-    @apply h-fit relative z-50 bg-[#ffffff] relative sticky top-0;
+    @apply h-fit relative z-50 bg-white relative sticky top-[48px] md:top-0 rounded-b-xl border-b border-b-gray-card-background;
 }
 .navigator {
-    @apply fixed bg-[#ffffff] h-fit w-full sticky top-0 px-6 py-4;
+    @apply fixed bg-white h-fit w-full sticky top-[48px] md:top-0 px-6 py-4 rounded-b-xl;
 
     ul {
-        @apply flex justify-center gap-4 overflow-x-scroll;
+        @apply flex justify-center gap-4 overflow-x-scroll md:overflow-hidden;
 
         li {
             @apply whitespace-nowrap;
@@ -13,9 +13,9 @@
     }
 }
 .selected {
-    @apply bg-green;
+    @apply border-b-[2px] border-b-green;
 }
 
 .partida {
-    @apply mb-4;
+    @apply mb-4 max-w-xl mx-auto;
 }

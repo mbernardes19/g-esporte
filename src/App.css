@@ -1,10 +1,10 @@
 .main-container {
-    @apply w-full px-4 md:px-12 bg-[#F5F5F5];
+    @apply w-full px-4 md:px-12 bg-gray-background;
 }
 
-button {
+a {
     &:hover {
-        @apply bg-yellow;
+        @apply bg-gray-hover;
     }
 }
 

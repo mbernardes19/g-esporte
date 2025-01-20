@@ -48,6 +48,7 @@ export const PartidaCard: FC<PartidaCardProps> = ({
                 />
                 {comPlacar && (
                     <Placar
+                        className={s['compact-placar']}
                         golsEquipe1={golsEquipe1}
                         golsEquipe2={golsEquipe2}
                     />

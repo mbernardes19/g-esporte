@@ -11,7 +11,12 @@ module.exports = {
             yellow: '#ffc82c',
             'gray-dark': '#273444',
             gray: '#8492a6',
-            'gray-light': '#d3dce6'
+            'gray-light': '#d3dce6',
+            white: '#ffffff',
+            'gray-hover': '#25252b',
+            'gray-background': '#F5F5F5',
+            'gray-card-background': '#ececec',
+            'gray-menu-background': '#161618'
         },
         fontFamily: {
             sans: ['Graphik', 'sans-serif'],
