@@ -1,17 +1,7 @@
-import {
-    createContext,
-    Dispatch,
-    FC,
-    PropsWithChildren,
-    SetStateAction,
-    useEffect,
-    useMemo,
-    useState
-} from 'react'
+import { createContext, FC, PropsWithChildren, useMemo, useState } from 'react'
 import { DadosPartida } from '../../types/api'
 import { findSelectedPartida } from '@lib/utils/findSelectedPartida'
 import { getEquipesFromPartidaText } from '@lib/utils/getEquipesFromPartidaText'
-import { useNavigation } from '@lib/hooks/useNavigation'
 import { getGolsFromLances } from '@lib/utils/getGolsFromLances'
 
 export type PartidaProviderProps = {
@@ -21,22 +11,17 @@ export type PartidaProviderProps = {
 export type DadosPartidaSelecionada = {
     equipe1: string
     equipe2: string
-    codigoPartidaAtual: string
     golsEquipe1: number
     golsEquipe2: number
 } & DadosPartida
 
-export type PartidaContextType = DadosPartidaSelecionada & {
-    setCodigoPartidaAtual: Dispatch<SetStateAction<string>>
-}
+export type PartidaContextType = DadosPartidaSelecionada
 
 export const PartidaContext = createContext<PartidaContextType>({
     equipe1: '',
     equipe2: '',
-    codigoPartidaAtual: '',
     golsEquipe1: 0,
     golsEquipe2: 0,
-    setCodigoPartidaAtual: () => '',
     ListaPartidas: [],
     PartidaAndamento: false,
     MediaGols: {
@@ -59,19 +44,9 @@ export const PartidaProvider: FC<PartidaProviderProps> = ({
     const selectedPartida = findSelectedPartida(
         dadosPartida?.ListaPartidas ?? []
     )
-    const [codigoPartidaAtual, setCodigoPartidaAtual] = useState<string>(
-        selectedPartida?.Codigo ?? ''
-    )
     const { equipe1, equipe2 } = getEquipesFromPartidaText(
         selectedPartida?.Texto ?? ''
     )
-    const { push, lastSegment } = useNavigation()
-
-    useEffect(() => {
-        if (lastSegment !== codigoPartidaAtual) {
-            push(`/${codigoPartidaAtual}`)
-        }
-    }, [codigoPartidaAtual])
 
     const value: PartidaContextType = useMemo(
         () => ({
@@ -83,11 +58,9 @@ export const PartidaProvider: FC<PartidaProviderProps> = ({
                 : 0,
             golsEquipe2: dadosPartida
                 ? getGolsFromLances(dadosPartida, equipe2)
-                : 0,
-            codigoPartidaAtual,
-            setCodigoPartidaAtual
+                : 0
         }),
-        [codigoPartidaAtual]
+        [equipe1, equipe2]
     )
 
     return (

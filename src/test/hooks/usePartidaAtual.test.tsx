@@ -1,9 +1,8 @@
 import { renderHook } from '@testing-library/react'
-import { act, FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import { PartidaProvider } from '@lib/context/partidaContext'
 import { DadosPartida, PartidaStatus } from '@customTypes/api'
 import { usePartidaAtual } from '@lib/hooks/usePartidaAtual'
-import { useNavigation } from '@lib/hooks/useNavigation'
 
 let wrapper: FC<PropsWithChildren>
 
@@ -627,24 +626,6 @@ beforeEach(() => {
 test('Renderiza usePartidaAtual com dados da partida', () => {
     const { result } = renderHook(() => usePartidaAtual(), { wrapper })
 
-    expect(result.current.codigoPartidaAtual).toBe('20489')
     expect(result.current.equipe1).toBe('Botafogo')
     expect(result.current.equipe2).toBe('São Paulo')
-})
-
-test('Faz um push para nova página quando código da partida é atualizado', async () => {
-    const mockedPush = jest.fn()
-    const useNavigationMock = useNavigation as jest.Mock
-    useNavigationMock.mockImplementation(() => ({
-        push: mockedPush
-    }))
-
-    const { result } = renderHook(() => usePartidaAtual(), { wrapper })
-
-    await act(async () => {
-        result.current.setCodigoPartidaAtual('20488')
-    })
-
-    expect(result.current.codigoPartidaAtual).toBe('20488')
-    expect(mockedPush).toHaveBeenCalledWith('/20488')
 })
